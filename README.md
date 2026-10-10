@@ -19,7 +19,7 @@ This is a frontend landing page built for the GDG RBU recruitment task. The goal
 
 ## Live Demo
 
-[Link to Live Demo](#)
+[Link to Live Demo](https://gdg-rbu-aj.vercel.app/)
 
 ## Folder Structure
 
