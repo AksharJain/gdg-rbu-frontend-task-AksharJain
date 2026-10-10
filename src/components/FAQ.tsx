@@ -34,7 +34,10 @@ export function FAQ() {
             <div key={index} className="flex flex-col">
               <button 
                 onClick={() => toggle(index)}
-                className="brutal w-full px-6 py-5 flex items-center justify-between text-left z-10"
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
+                id={`faq-question-${index}`}
+                className="brutal w-full px-6 py-5 flex items-center justify-between text-left z-10 focus-visible:ring-2 focus-visible:ring-gdg-blue focus-visible:outline-none"
               >
                 <span className="font-bold text-lg md:text-xl text-[var(--fg)] pr-4">{faq.question}</span>
                 <motion.div 
@@ -46,9 +49,12 @@ export function FAQ() {
                 </motion.div>
               </button>
               
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 {openIndex === index && (
                   <motion.div
+                    id={`faq-answer-${index}`}
+                    role="region"
+                    aria-labelledby={`faq-question-${index}`}
                     initial={{ height: 0, opacity: 0, marginTop: -10 }}
                     animate={{ height: "auto", opacity: 1, marginTop: 12 }}
                     exit={{ height: 0, opacity: 0, marginTop: -10 }}

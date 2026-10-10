@@ -12,7 +12,7 @@ export function Team() {
               <h2 className="font-pixel text-4xl md:text-5xl text-[var(--fg)]">
                 Meet the Google Developer Group Team
               </h2>
-              <p className="font-mono2 text-lg text-[var(--fg)]">
+              <p className="font-body text-lg text-[var(--fg)]">
                 Google Developer Groups (GDG) are open and volunteer-run communities for developers interested in Google technologies. Our team focuses on learning, networking, and collaboration through events and hands-on sessions.
               </p>
               

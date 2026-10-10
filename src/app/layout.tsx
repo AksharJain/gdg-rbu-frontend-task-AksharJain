@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body className={`${pixel.variable} ${mono2.variable} ${body.variable} font-body antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light">
           <Navbar />

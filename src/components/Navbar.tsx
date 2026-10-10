@@ -20,8 +20,8 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-[var(--bg)] border-b-2 border-[var(--fg)]">
-      <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-[var(--bg)] border-b-2 border-[var(--fg)]">
+      <nav className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
         {/* Left: Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image
@@ -30,6 +30,7 @@ export function Navbar() {
             width={144}
             height={48}
             className="h-12 w-auto"
+            priority
           />
         </Link>
 
@@ -47,13 +48,13 @@ export function Navbar() {
         </div>
 
         {/* Right: User Chip & Toggle */}
-        <div className="flex items-center gap-4">
-          <div className="hidden sm:flex items-center gap-2 border-2 border-black bg-white rounded-full p-1 pr-3 shadow-[4px_4px_0_0_#000]">
-            <div className="w-8 h-8 rounded-full bg-gdg-blue flex items-center justify-center font-bold text-black border-2 border-black">
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="flex items-center gap-2 border-2 border-black bg-white rounded-full p-1 sm:pr-3 shadow-[4px_4px_0_0_#000]">
+            <div className="w-8 h-8 rounded-full bg-gdg-blue flex items-center justify-center font-bold text-black border-2 border-black flex-shrink-0">
               S
             </div>
-            <span className="font-bold text-black text-sm">Saptanshu Wanjari</span>
-            <ChevronDown size={16} className="text-black" />
+            <span className="hidden sm:block font-bold text-black text-sm whitespace-nowrap">Saptanshu Wanjari</span>
+            <ChevronDown size={16} className="hidden sm:block text-black" />
           </div>
           
           <ThemeToggle />
@@ -62,11 +63,13 @@ export function Navbar() {
           <button
             className="md:hidden p-2 border-2 border-[var(--fg)] rounded-md hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-colors"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Slide-down Panel */}
       <AnimatePresence>
@@ -88,17 +91,10 @@ export function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              
-              <div className="sm:hidden flex items-center gap-2 border-2 border-black bg-white rounded-full p-2 justify-center shadow-[4px_4px_0_0_#000]">
-                <div className="w-8 h-8 rounded-full bg-gdg-blue flex items-center justify-center font-bold text-black border-2 border-black">
-                  S
-                </div>
-                <span className="font-bold text-black text-sm">Saptanshu Wanjari</span>
-              </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   );
 }

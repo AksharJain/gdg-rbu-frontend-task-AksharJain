@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { MapPin, Mail } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 
 const InstagramIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -25,6 +28,7 @@ const XIcon = () => (
 );
 
 export function Footer() {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <footer id="footer" className="w-full pt-12 md:pt-24 flex flex-col items-center">
       <div className="max-w-6xl w-full mx-auto px-4 mb-16">
@@ -61,13 +65,13 @@ export function Footer() {
             <div className="bg-[#6C72FF] border-2 border-[var(--fg)] shadow-[4px_4px_0_0_var(--fg)] rounded-xl p-8 flex flex-col justify-center items-center gap-6 h-full">
               <h3 className="font-bold text-2xl text-white">Follow Us:</h3>
               <div className="flex gap-4">
-                <a href="#" className="w-14 h-14 bg-gdg-red border-2 border-black shadow-[4px_4px_0_0_#000] rounded-xl flex items-center justify-center text-black hover:translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0_0_#000] transition-all">
+                <a href="#" aria-label="Instagram" className="w-14 h-14 bg-gdg-red border-2 border-black shadow-[4px_4px_0_0_#000] rounded-xl flex items-center justify-center text-black hover:translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0_0_#000] transition-all focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none">
                   <InstagramIcon />
                 </a>
-                <a href="#" className="w-14 h-14 bg-gdg-blue border-2 border-black shadow-[4px_4px_0_0_#000] rounded-xl flex items-center justify-center text-black hover:translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0_0_#000] transition-all">
+                <a href="#" aria-label="LinkedIn" className="w-14 h-14 bg-gdg-blue border-2 border-black shadow-[4px_4px_0_0_#000] rounded-xl flex items-center justify-center text-black hover:translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0_0_#000] transition-all focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none">
                   <LinkedinIcon />
                 </a>
-                <a href="#" className="w-14 h-14 bg-gdg-green border-2 border-black shadow-[4px_4px_0_0_#000] rounded-xl flex items-center justify-center text-black hover:translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0_0_#000] transition-all">
+                <a href="#" aria-label="X (Twitter)" className="w-14 h-14 bg-gdg-green border-2 border-black shadow-[4px_4px_0_0_#000] rounded-xl flex items-center justify-center text-black hover:translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0_0_#000] transition-all focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none">
                   <XIcon />
                 </a>
               </div>
@@ -77,14 +81,18 @@ export function Footer() {
       </div>
       
       {/* Shapes Strip */}
-      <div className="w-full relative h-24 md:h-32">
+      <motion.div 
+        className="w-full relative h-24 md:h-32 mix-blend-multiply dark:invert dark:mix-blend-screen"
+        animate={{ y: shouldReduceMotion ? 0 : [-5, 5, -5] }}
+        transition={{ repeat: shouldReduceMotion ? 0 : Infinity, duration: 4, ease: "easeInOut" }}
+      >
         <Image 
           src="/images/shapes.png" 
-          alt="GDG Shapes" 
+          alt="GDG Shapes background pattern" 
           fill
           className="object-cover object-top"
         />
-      </div>
+      </motion.div>
     </footer>
   );
 }
