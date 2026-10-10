@@ -80,6 +80,10 @@ export function Footer() {
         </div>
       </div>
       
+      <div className="text-center font-body text-sm mb-4">
+        Built by <a href="https://github.com/AksharJain" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-gdg-blue transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fg)]">Akshar Jain</a> for GDG RBU Recruitment 2026-27
+      </div>
+
       {/* Shapes Strip */}
       <motion.div 
         className="w-full relative h-24 md:h-32 mix-blend-multiply dark:invert dark:mix-blend-screen"

@@ -9,8 +9,9 @@ const mono2 = Space_Mono({ weight: ["400", "700"], subsets: ["latin"], variable:
 const body = Space_Grotesk({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata: Metadata = {
-  title: "GDG RBU",
-  description: "GDG RBU Recruitment Task",
+  title: "GDG RBU | Akshar Jain",
+  description: "GDG RBU recruitment frontend task",
+  authors: [{ name: "Akshar Jain" }],
 };
 
 export default function RootLayout({
