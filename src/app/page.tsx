@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero";
 import { UpcomingEvent } from "@/components/UpcomingEvent";
 import { Team } from "@/components/Team";
 import { FAQ } from "@/components/FAQ";
+import { AskGdg } from "@/components/AskGdg";
 import { Footer } from "@/components/Footer";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -28,6 +29,7 @@ export default function Home() {
       <FadeUp><UpcomingEvent /></FadeUp>
       <FadeUp><Team /></FadeUp>
       <FadeUp><FAQ /></FadeUp>
+      <FadeUp><AskGdg /></FadeUp>
       <FadeUp><Footer /></FadeUp>
     </main>
   );
