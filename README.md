@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GDG RBU Frontend Task
 
-## Getting Started
+This is a frontend landing page built for the GDG RBU recruitment task. The goal was to build a responsive, interactive page following a neo-brutalist design reference.
 
-First, run the development server:
+## Tech Stack
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- next-themes
+
+## Features
+
+- Responsive design that works well across mobile, tablet, and desktop screens.
+- Dark and light mode toggle.
+- Subtle scroll and interactive animations (which respect user reduced-motion preferences).
+- Accessible, using semantic HTML, ARIA labels, and clear keyboard focus outlines.
+
+## Live Demo
+
+[Link to Live Demo](#)
+
+## Folder Structure
+
+```text
+├── design/              # Design reference screenshots
+├── public/
+│   └── images/          # Static assets (logo, shapes, team image)
+├── src/
+│   ├── app/
+│   │   ├── globals.css  # Global Tailwind configuration and CSS variables
+│   │   ├── layout.tsx   # Root layout and theme provider setup
+│   │   └── page.tsx     # Main page assembling all sections
+│   └── components/      # Individual UI sections and elements
+│       ├── FAQ.tsx
+│       ├── Footer.tsx
+│       ├── Hero.tsx
+│       ├── Navbar.tsx
+│       ├── Team.tsx
+│       ├── ThemeProvider.tsx
+│       ├── ThemeToggle.tsx
+│       └── UpcomingEvent.tsx
+├── next.config.ts
+└── package.json
+```
+
+## How to Run Locally
+
+Clone the repository and install the dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser to view the page.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To build the project for production, run:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## Screenshots
 
-To learn more about Next.js, take a look at the following resources:
+### Desktop
+![Desktop View](screenshots/desktop.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Mobile
+![Mobile View](screenshots/mobile.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Dark Mode
+![Dark Mode View](screenshots/dark.png)
 
-## Deploy on Vercel
+## What I would improve
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If I were to take this project further, a few things I would improve include:
+- Fetching real event data from a backend API or CMS instead of using hardcoded objects.
+- Writing tests for the interactive components (like the mobile menu and FAQ accordion) to make sure they are robust over time.
