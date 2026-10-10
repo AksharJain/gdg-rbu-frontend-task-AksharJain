@@ -9,6 +9,7 @@ This is a frontend landing page built for the GDG RBU recruitment task. The goal
 - Tailwind CSS
 - Framer Motion
 - next-themes
+- Google Gemini API (called from a Next.js API route)
 
 ## Features
 
@@ -16,6 +17,11 @@ This is a frontend landing page built for the GDG RBU recruitment task. The goal
 - Dark and light mode toggle.
 - Subtle scroll and interactive animations (which respect user reduced-motion preferences).
 - Accessible, using semantic HTML, ARIA labels, and clear keyboard focus outlines.
+- Ask GDG: an AI chat box below the FAQ that answers questions about GDG RBU (powered by Google Gemini)
+
+## How the AI feature works
+
+The chat box sends the question to an API route (`/api/ask`). The route checks the question (not empty, max 300 characters) and calls the Gemini API with a system instruction that keeps answers limited to GDG RBU topics. The API key stays on the server, so it is never visible in the browser.
 
 ## Live Demo
 
@@ -52,6 +58,11 @@ Clone the repository and install the dependencies:
 ```bash
 npm install
 ```
+Create a `.env.local` file in the project root (use `.env.example` as a reference) and add your Gemini API key:
+
+GEMINI_API_KEY=your_key_here
+
+You can get a free key from Google AI Studio (aistudio.google.com). Do not commit `.env.local`, it is already in `.gitignore`.
 
 Start the development server:
 
