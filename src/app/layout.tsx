@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Pixelify_Sans, Space_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Navbar } from "@/components/Navbar";
 
 const pixel = Pixelify_Sans({ subsets: ["latin"], variable: "--font-pixel" });
 const mono2 = Space_Mono({ weight: ["400", "700"], subsets: ["latin"], variable: "--font-mono2" });
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${pixel.variable} ${mono2.variable} ${body.variable} font-body antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light">
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
